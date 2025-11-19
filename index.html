@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track and reduce your carbon footprint with AI-powered insights">
+    <title>Carbon Footprint Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="logo">🌱</span>
+                <span class="brand-text">Carbon Tracker</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#calculator" class="nav-link">Calculator</a></li>
+                <li><a href="#dashboard" class="nav-link">Dashboard</a></li>
+                <li><a href="#history" class="nav-link">History</a></li>
+                <li><a href="#" class="nav-link" id="chatLink">Chat</a></li>
+
+                <li><a href="#insights" class="nav-link">Insights</a></li>
+                <li><a href="#goals" class="nav-link">Tasks</a></li>
+                <!-- <li><a href="#premium" class="nav-link">Premium</a></li> -->
+                <li><a href="#profile" class="nav-link">Profile</a></li>
+               
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="btn-secondary" id="loginBtn">Login</button>
+                <button class="btn-primary" id="signupBtn">Sign Up</button>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Track Your Carbon Footprint</h1>
+                <p class="hero-subtitle">Measure, understand, and reduce your environmental impact with AI-powered insights</p>
+                <div class="hero-cta">
+                    <button class="btn-primary btn-large" onclick="scrollToSection('calculator')">
+                        Calculate My Footprint
+                    </button>
+                    <button class="btn-secondary btn-large" onclick="scrollToSection('dashboard')">
+                        View Dashboard
+                    </button>
+                </div>
+                <!-- <div class="hero-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Users</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2.5M</div>
+                        <div class="stat-label">CO₂e Reduced</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">125K</div>
+                        <div class="stat-label">Trees Equivalent</div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Calculator Section -->
+    <section id="calculator" class="calculator-section">
+        <div class="container">
+            <h2 class="section-title">Carbon Footprint Calculator</h2>
+            <p class="section-subtitle">Enter your activities to calculate your carbon emissions</p>
+            
+            <div class="calculator-tabs">
+                <button class="calc-tab active" data-category="transport">🚗 Transport</button>
+                <button class="calc-tab" data-category="energy">⚡ Energy</button>
+                <button class="calc-tab" data-category="food">🍽️ Food</button>
+                <button class="calc-tab" data-category="waste">🗑️ Waste</button>
+                <button class="calc-tab" data-category="shopping">🛒 Shopping</button>
+            </div>
+
+            <div class="calculator-content">
+                <!-- Transport -->
+                <div class="calc-panel active" id="transport-panel">
+                    <p class="calc-panel-note">Choose a transport category to enter your daily distance.</p>
+
+                    <div class="calc-category-group">
+                        <button class="calc-category-toggle" data-target="personal-transport-group" aria-expanded="false" aria-controls="personal-transport-group">
+                            <span>Personal Vehicles</span>
+                            <span class="calc-toggle-icon">+</span>
+                        </button>
+                        <div class="calc-category-content" id="personal-transport-group" hidden>
+                            <div class="input-group">
+                                <label for="car-miles">Car (Gasoline) Miles (miles/day)</label>
+                                <input type="number" id="car-miles" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="electric-car-miles">Electric Car Miles (miles/day)</label>
+                                <input type="number" id="electric-car-miles" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="hybrid-car-miles">Hybrid Car Miles (miles/day)</label>
+                                <input type="number" id="hybrid-car-miles" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="motorcycle-miles">Motorcycle Miles (miles/day)</label>
+                                <input type="number" id="motorcycle-miles" class="input-field" placeholder="0" min="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-category-group">
+                        <button class="calc-category-toggle" data-target="public-transport-group" aria-expanded="false" aria-controls="public-transport-group">
+                            <span>Public Transportation</span>
+                            <span class="calc-toggle-icon">+</span>
+                        </button>
+                        <div class="calc-category-content" id="public-transport-group" hidden>
+                            <div class="input-group">
+                                <label for="metro-miles">Metro/Subway Miles (miles/day)</label>
+                                <input type="number" id="metro-miles" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="bus-miles">Bus Miles (miles/day)</label>
+                                <input type="number" id="bus-miles" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="train-miles">Train Miles (miles/day)</label>
+                                <input type="number" id="train-miles" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="tram-miles">Tram/Streetcar Miles (miles/day)</label>
+                                <input type="number" id="tram-miles" class="input-field" placeholder="0" min="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-category-group">
+                        <button class="calc-category-toggle" data-target="rides-transport-group" aria-expanded="false" aria-controls="rides-transport-group">
+                            <span>Rides &amp; Taxis</span>
+                            <span class="calc-toggle-icon">+</span>
+                        </button>
+                        <div class="calc-category-content" id="rides-transport-group" hidden>
+                            <div class="input-group">
+                                <label for="taxi-miles">Taxi Miles (miles/day)</label>
+                                <input type="number" id="taxi-miles" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="rideshare-miles">Rideshare (Uber/Lyft) Miles (miles/day)</label>
+                                <input type="number" id="rideshare-miles" class="input-field" placeholder="0" min="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-category-group">
+                        <button class="calc-category-toggle" data-target="air-transport-group" aria-expanded="false" aria-controls="air-transport-group">
+                            <span>Air Travel</span>
+                            <span class="calc-toggle-icon">+</span>
+                        </button>
+                        <div class="calc-category-content" id="air-transport-group" hidden>
+                            <div class="input-group">
+                                <label for="flight-short-km">Short-haul Flights (km/day)</label>
+                                <input type="number" id="flight-short-km" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="flight-long-km">Long-haul Flights (km/day)</label>
+                                <input type="number" id="flight-long-km" class="input-field" placeholder="0" min="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-category-group">
+                        <button class="calc-category-toggle" data-target="eco-transport-group" aria-expanded="false" aria-controls="eco-transport-group">
+                            <span>Eco-Friendly Transport</span>
+                            <span class="calc-toggle-icon">+</span>
+                        </button>
+                        <div class="calc-category-content" id="eco-transport-group" hidden>
+                            <div class="input-group">
+                                <label for="bike-miles">Bicycle Miles (miles/day)</label>
+                                <input type="number" id="bike-miles" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="walking-miles">Walking Miles (miles/day)</label>
+                                <input type="number" id="walking-miles" class="input-field" placeholder="0" min="0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Energy -->
+                <div class="calc-panel" id="energy-panel">
+                    <p class="calc-panel-note">Select an energy category to add your daily usage.</p>
+
+                    <div class="calc-category-group">
+                        <button class="calc-category-toggle" data-target="electricity-energy-group" aria-expanded="false" aria-controls="electricity-energy-group">
+                            <span>Electricity &amp; Gas</span>
+                            <span class="calc-toggle-icon">+</span>
+                        </button>
+                        <div class="calc-category-content" id="electricity-energy-group" hidden>
+                            <div class="input-group">
+                                <label for="electricity">Electricity Usage (kWh/day)</label>
+                                <input type="number" id="electricity" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="gas">Natural Gas (therms/day)</label>
+                                <input type="number" id="gas" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="renewable-percent">Renewable Energy (%)</label>
+                                <input type="number" id="renewable-percent" class="input-field" placeholder="0" min="0" max="100">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-category-group">
+                        <button class="calc-category-toggle" data-target="alt-energy-group" aria-expanded="false" aria-controls="alt-energy-group">
+                            <span>Alternative Energy Sources</span>
+                            <span class="calc-toggle-icon">+</span>
+                        </button>
+                        <div class="calc-category-content" id="alt-energy-group" hidden>
+                            <div class="input-group">
+                                <label for="heating-oil">Heating Oil (liters/day)</label>
+                                <input type="number" id="heating-oil" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="propane">Propane (liters/day)</label>
+                                <input type="number" id="propane" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="coal">Coal (kg/day)</label>
+                                <input type="number" id="coal" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="solar-kwh">Solar Energy Generated (kWh/day)</label>
+                                <input type="number" id="solar-kwh" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="wind-kwh">Wind Energy Generated (kWh/day)</label>
+                                <input type="number" id="wind-kwh" class="input-field" placeholder="0" min="0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Food -->
+                <div class="calc-panel" id="food-panel">
+                    <p class="calc-panel-note">Log the types of meals you consume each day.</p>
+
+                    <div class="calc-category-group">
+                        <button class="calc-category-toggle" data-target="meat-food-group" aria-expanded="false" aria-controls="meat-food-group">
+                            <span>Meat &amp; Protein</span>
+                            <span class="calc-toggle-icon">+</span>
+                        </button>
+                        <div class="calc-category-content" id="meat-food-group" hidden>
+                            <div class="input-group">
+                                <label for="beef-meals">Beef Meals per Day</label>
+                                <input type="number" id="beef-meals" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="chicken-meals">Chicken Meals per Day</label>
+                                <input type="number" id="chicken-meals" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="fish-meals">Fish Meals per Day</label>
+                                <input type="number" id="fish-meals" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="meat-meals">Other Meat Meals per Day</label>
+                                <input type="number" id="meat-meals" class="input-field" placeholder="0" min="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-category-group">
+                        <button class="calc-category-toggle" data-target="plants-food-group" aria-expanded="false" aria-controls="plants-food-group">
+                            <span>Plant-Based Options</span>
+                            <span class="calc-toggle-icon">+</span>
+                        </button>
+                        <div class="calc-category-content" id="plants-food-group" hidden>
+                            <div class="input-group">
+                                <label for="vegetarian-meals">Vegetarian Meals per Day</label>
+                                <input type="number" id="vegetarian-meals" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="vegan-meals">Vegan Meals per Day</label>
+                                <input type="number" id="vegan-meals" class="input-field" placeholder="0" min="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-category-group">
+                        <button class="calc-category-toggle" data-target="dairy-food-group" aria-expanded="false" aria-controls="dairy-food-group">
+                            <span>Dairy &amp; Eggs</span>
+                            <span class="calc-toggle-icon">+</span>
+                        </button>
+                        <div class="calc-category-content" id="dairy-food-group" hidden>
+                            <div class="input-group">
+                                <label for="dairy-products">Dairy Products (servings/day)</label>
+                                <input type="number" id="dairy-products" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="cheese-servings">Cheese (servings/day)</label>
+                                <input type="number" id="cheese-servings" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="eggs-servings">Eggs (servings/day)</label>
+                                <input type="number" id="eggs-servings" class="input-field" placeholder="0" min="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-category-group">
+                        <button class="calc-category-toggle" data-target="other-food-group" aria-expanded="false" aria-controls="other-food-group">
+                            <span>Other</span>
+                            <span class="calc-toggle-icon">+</span>
+                        </button>
+                        <div class="calc-category-content" id="other-food-group" hidden>
+                            <div class="input-group">
+                                <label for="processed-food-meals">Processed Food Meals per Day</label>
+                                <input type="number" id="processed-food-meals" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="local-food">Local/Organic Food (%)</label>
+                                <input type="number" id="local-food" class="input-field" placeholder="0" min="0" max="100">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Waste -->
+                <div class="calc-panel" id="waste-panel">
+                    <p class="calc-panel-note">Track your waste output and how much you recover.</p>
+
+                    <div class="calc-category-group">
+                        <button class="calc-category-toggle" data-target="waste-generation-group" aria-expanded="false" aria-controls="waste-generation-group">
+                            <span>Waste Generation</span>
+                            <span class="calc-toggle-icon">+</span>
+                        </button>
+                        <div class="calc-category-content" id="waste-generation-group" hidden>
+                            <div class="input-group">
+                                <label for="waste-bags">Waste Bags per Day</label>
+                                <input type="number" id="waste-bags" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="plastic-waste">Plastic Waste (kg/day)</label>
+                                <input type="number" id="plastic-waste" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="paper-waste">Paper Waste (kg/day)</label>
+                                <input type="number" id="paper-waste" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="organic-waste">Organic Waste (kg/day)</label>
+                                <input type="number" id="organic-waste" class="input-field" placeholder="0" min="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-category-group">
+                        <button class="calc-category-toggle" data-target="waste-reduction-group" aria-expanded="false" aria-controls="waste-reduction-group">
+                            <span>Waste Reduction</span>
+                            <span class="calc-toggle-icon">+</span>
+                        </button>
+                        <div class="calc-category-content" id="waste-reduction-group" hidden>
+                            <div class="input-group">
+                                <label for="recycling-percent">Recycling Rate (%)</label>
+                                <input type="number" id="recycling-percent" class="input-field" placeholder="0" min="0" max="100">
+                            </div>
+                            <div class="input-group">
+                                <label for="compost-percent">Composting Rate (%)</label>
+                                <input type="number" id="compost-percent" class="input-field" placeholder="0" min="0" max="100">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shopping -->
+                <div class="calc-panel" id="shopping-panel">
+                    <p class="calc-panel-note">Expand a shopping category to log your purchases.</p>
+
+                    <div class="calc-category-group">
+                        <button class="calc-category-toggle" data-target="general-shopping-group" aria-expanded="false" aria-controls="general-shopping-group">
+                            <span>General Shopping</span>
+                            <span class="calc-toggle-icon">+</span>
+                        </button>
+                        <div class="calc-category-content" id="general-shopping-group" hidden>
+                            <div class="input-group">
+                                <label for="shopping-spend">Daily Shopping ($)</label>
+                                <input type="number" id="shopping-spend" class="input-field" placeholder="0" min="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-category-group">
+                        <button class="calc-category-toggle" data-target="specific-shopping-group" aria-expanded="false" aria-controls="specific-shopping-group">
+                            <span>Specific Items</span>
+                            <span class="calc-toggle-icon">+</span>
+                        </button>
+                        <div class="calc-category-content" id="specific-shopping-group" hidden>
+                            <div class="input-group">
+                                <label for="electronics">Electronics Purchases (per day)</label>
+                                <input type="number" id="electronics" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="clothing-items">Clothing Items (per day)</label>
+                                <input type="number" id="clothing-items" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="furniture-items">Furniture Items (per day)</label>
+                                <input type="number" id="furniture-items" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="appliances-items">Appliances (per day)</label>
+                                <input type="number" id="appliances-items" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="books-items">Books (per day)</label>
+                                <input type="number" id="books-items" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="toys-items">Toys (per day)</label>
+                                <input type="number" id="toys-items" class="input-field" placeholder="0" min="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-category-group">
+                        <button class="calc-category-toggle" data-target="online-shopping-group" aria-expanded="false" aria-controls="online-shopping-group">
+                            <span>Online Shopping</span>
+                            <span class="calc-toggle-icon">+</span>
+                        </button>
+                        <div class="calc-category-content" id="online-shopping-group" hidden>
+                            <div class="input-group">
+                                <label for="online-packages">Online Shipping Packages (per day)</label>
+                                <input type="number" id="online-packages" class="input-field" placeholder="0" min="0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-primary btn-large btn-center" id="calculateBtn">
+                <span id="calculateBtnText">Calculate Footprint</span>
+                <span id="calculateBtnLoading" style="display: none;">Calculating...</span>
+            </button>
+            
+            <div class="calculation-result" id="calculationResult" style="display: none;">
+                <div class="result-card">
+                    <h3>Your Carbon Footprint</h3>
+                    <div class="result-value" id="resultValue">0.00</div>
+                    <div class="result-unit">tCO₂e/day</div>
+                    <div class="result-description" id="resultDescription" style="margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                        Based on your inputs across all categories
+                    </div>
+                    <button class="btn-secondary" id="saveCalculationBtn" style="margin-top: 1.5rem;">Save to Dashboard</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="dashboard-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Your Dashboard</h2>
+                <div class="section-actions">
+                    <button class="btn-secondary" id="exportBtn">Export Report</button>
+                    <span class="premium-badge" id="exportBadge">Premium</span>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- KPI Cards -->
+                <div class="kpi-card">
+                    <div class="kpi-icon">📊</div>
+                    <div class="kpi-content">
+                        <div class="kpi-value" id="monthlyCo2">0.0</div>
+                        <div class="kpi-label">Daily CO₂e</div>
+                        <div class="kpi-change positive" id="weeklyChange">+0%</div>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon">🌳</div>
+                    <div class="kpi-content">
+                        <div class="kpi-value" id="treesEquivalent">0</div>
+                        <div class="kpi-label">Trees Equivalent</div>
+                        <div class="kpi-subtext">To offset emissions</div>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon">📈</div>
+                    <div class="kpi-content">
+                        <div class="kpi-value" id="reductionPercent">0%</div>
+                        <div class="kpi-label">Change vs Yesterday</div>
+                        <div class="kpi-subtext">Keep it up!</div>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon">🎯</div>
+                    <div class="kpi-content">
+                        <div class="kpi-value" id="goalProgress">0%</div>
+                        <div class="kpi-label">Goal Progress</div>
+                        <div class="kpi-subtext">Towards target</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart Section -->
+            <div class="chart-container">
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <h3>Emission Trends</h3>
+                        <p class="chart-subtitle">Daily CO₂e over the last 14 days</p>
+                    </div>
+                    <div class="chart-canvas-wrapper">
+                        <canvas id="trendChart" width="400" height="280" aria-label="Line chart of daily emissions" role="img"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-card-header">
+                        <h3>Category Breakdown</h3>
+                        <p class="chart-subtitle">Share of emissions by activity</p>
+                    </div>
+                    <div class="chart-canvas-wrapper">
+                        <canvas id="categoryChart" width="400" height="280" aria-label="Donut chart of category emissions" role="img"></canvas>
+                    </div>
+                    <div id="categoryLegend" class="chart-legend" aria-live="polite"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Token Dashboard Section -->
+    <section id="tokens" class="token-section">
+        <div class="container">
+            <div class="section-header token-header">
+                <div>
+                    <h2 class="section-title">Impact Tokens</h2>
+                    <p class="section-subtitle">Earn rewards every time you cut emissions</p>
+                </div>
+                <div class="token-actions">
+                    <button class="btn-secondary" id="tokenGuideBtn">How It Works</button>
+                    <button class="btn-primary" id="redeemTokensBtn">Redeem (Soon)</button>
+                </div>
+            </div>
+
+            <div id="tokenMotivation" class="token-motivation">
+                <div class="token-motivation-icon">🔥</div>
+                <div>
+                    <p class="token-motivation-title">Stay consistent to unlock boosts!</p>
+                    <p class="token-motivation-body" id="tokenMotivationText">Log an activity to see your savings grow.</p>
+                </div>
+            </div>
+
+            <div class="token-grid">
+                <div class="token-card glass">
+                    <div class="token-card-header">
+                        <div>
+                            <p>Total Tokens</p>
+                            <h3 id="totalTokens">0</h3>
+                        </div>
+                        <span class="token-icon">🪙</span>
+                    </div>
+                    <p class="token-card-subtext">Lifetime impact</p>
+                </div>
+                <div class="token-card glass">
+                    <div class="token-card-header">
+                        <div>
+                            <p>Today</p>
+                            <h3 id="todayTokens">0</h3>
+                        </div>
+                        <span class="token-icon">🌤️</span>
+                    </div>
+                    <p class="token-card-subtext" id="todaySavingsText">0 kg saved</p>
+                </div>
+                <div class="token-card glass">
+                    <div class="token-card-header">
+                        <div>
+                            <p>Weekly</p>
+                            <h3 id="weekTokens">0</h3>
+                        </div>
+                        <span class="token-icon">📅</span>
+                    </div>
+                    <div class="token-progress-bar">
+                        <div id="weekProgressFill" class="token-progress-fill"></div>
+                    </div>
+                    <p class="token-card-subtext" id="weekSavingsText">0 / 700 tokens goal</p>
+                </div>
+                <div class="token-card glass">
+                    <div class="token-card-header">
+                        <div>
+                            <p>Monthly</p>
+                            <h3 id="monthTokens">0</h3>
+                        </div>
+                        <span class="token-icon">🗓️</span>
+                    </div>
+                    <div class="token-progress-bar">
+                        <div id="monthProgressFill" class="token-progress-fill"></div>
+                    </div>
+                    <p class="token-card-subtext" id="monthSavingsText">0 / 3000 tokens goal</p>
+                </div>
+            </div>
+
+            <div class="token-visuals">
+                <div class="token-chart-card glass">
+                    <div class="chart-card-header">
+                        <h3>Daily Savings vs Tokens</h3>
+                        <p class="chart-subtitle">Track how consistent effort pays off</p>
+                    </div>
+                    <div class="chart-canvas-wrapper">
+                        <canvas id="tokenPerformanceChart" aria-label="Daily savings vs tokens" role="img"></canvas>
+                    </div>
+                </div>
+                <div class="token-history-card glass">
+                    <div class="token-history-header">
+                        <h3>Recent Token Activity</h3>
+                        <span id="tokenHistoryCounter">0 entries</span>
+                    </div>
+                    <div class="token-history-list" id="tokenHistoryList">
+                        <p class="empty-message">No token activity yet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="token-achievements glass">
+                <div class="token-achievements-header">
+                    <h3>Achievements</h3>
+                    <p>Unlock badges as you grow your impact</p>
+                </div>
+                <div class="achievements-grid" id="achievementGrid">
+                    <!-- badges rendered via JS -->
+                </div>
+            </div>
+
+            <div class="token-leaderboard glass">
+                <div class="token-leaderboard-header">
+                    <h3>Leaderboard</h3>
+                    <p>Top community impact this week</p>
+                </div>
+                <ol class="leaderboard-list" id="leaderboardList">
+                    <li class="empty-message">No leaders yet.</li>
+                </ol>
+            </div>
+
+            <div class="token-redeem glass">
+                <div>
+                    <h3>Coming Soon: Redeem Tokens</h3>
+                    <p>Swap your tokens for planet-friendly rewards. Stay tuned while we finalize partnerships!</p>
+                </div>
+                <button class="btn-secondary" disabled>Notify Me</button>
+            </div>
+
+            <div id="tokenCelebration"></div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="history-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Detailed History</h2>
+                <div class="section-actions">
+                    <button class="btn-secondary" id="refreshHistoryBtn">Refresh</button>
+                    <button class="btn-primary" id="loadSummaryBtn">View Summary</button>
+                </div>
+            </div>
+
+            <!-- Daily History Table -->
+            <div class="history-table-container">
+                <div class="history-table-card">
+                    <h3>My History</h3>
+                    <div class="history-table-wrapper">
+                        <table class="history-table" id="dailyHistoryTable">
+                            <thead>
+                                <tr>
+                                    <th>Category</th>
+                                    <th>Total</th>
+                                    <!-- Day columns will be dynamically added -->
+                                </tr>
+                            </thead>
+                            <tbody id="dailyHistoryTableBody">
+                                <tr>
+                                    <td colspan="100%" class="empty-message">Loading history data...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Breakdown -->
+            <div class="history-breakdown" id="historyBreakdown">
+                <!-- Transport Breakdown -->
+                <div class="breakdown-card" id="transportBreakdown">
+                    <div class="breakdown-card-header">
+                        <h3>🚗 Transport Details</h3>
+                        <button class="btn-secondary btn-small" id="addTransportBtn">+ Add Entry</button>
+                    </div>
+                    <div class="breakdown-form" id="transportForm" style="display: none;">
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="transport-vehicle">Vehicle Type</label>
+                                <input type="text" id="transport-vehicle" class="input-field" placeholder="e.g., Electric car, Metro, Rideshare">
+                            </div>
+                            <div class="input-group">
+                                <label for="transport-km">Total KM</label>
+                                <input type="number" id="transport-km" class="input-field" placeholder="0" min="0" step="0.1">
+                            </div>
+                            <div class="input-group">
+                                <label for="transport-trips">Number of Trips</label>
+                                <input type="number" id="transport-trips" class="input-field" placeholder="0" min="0">
+                            </div>
+                            <div class="input-group">
+                                <label for="transport-emissions">Emissions (kg CO₂e)</label>
+                                <input type="number" id="transport-emissions" class="input-field" placeholder="0" min="0" step="0.01">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn-primary" id="saveTransportBtn">Save Entry</button>
+                            <button class="btn-secondary" id="cancelTransportBtn">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="breakdown-content" id="transportBreakdownContent">
+                        <p class="empty-message">No transport data available. Start logging your trips!</p>
+                    </div>
+                </div>
+
+                <!-- Power Consumption Breakdown -->
+                <div class="breakdown-card" id="powerBreakdown">
+                    <div class="breakdown-card-header">
+                        <h3>🔌 Power Consumption</h3>
+                        <button class="btn-secondary btn-small" id="addPowerBtn">+ Add Entry</button>
+                    </div>
+                    <div class="breakdown-form" id="powerForm" style="display: none;">
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="power-source">Source</label>
+                                <input type="text" id="power-source" class="input-field" placeholder="e.g., Grid electricity, Solar array">
+                            </div>
+                            <div class="input-group">
+                                <label for="power-kwh">Usage (kWh)</label>
+                                <input type="number" id="power-kwh" class="input-field" placeholder="0" min="0" step="0.1">
+                            </div>
+                            <div class="input-group">
+                                <label for="power-renewable">Renewables (%)</label>
+                                <input type="number" id="power-renewable" class="input-field" placeholder="0" min="0" max="100">
+                            </div>
+                            <div class="input-group">
+                                <label for="power-peak">Peak Window</label>
+                                <input type="text" id="power-peak" class="input-field" placeholder="e.g., 6pm-11pm">
+                            </div>
+                            <div class="input-group">
+                                <label for="power-emissions">Emissions (kg CO₂e)</label>
+                                <input type="number" id="power-emissions" class="input-field" placeholder="0" min="0" step="0.01">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn-primary" id="savePowerBtn">Save Entry</button>
+                            <button class="btn-secondary" id="cancelPowerBtn">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="breakdown-content" id="powerBreakdownContent">
+                        <p class="empty-message">No power data available. Connect a utility bill to get started!</p>
+                    </div>
+                </div>
+
+                <!-- Shopping Breakdown -->
+                <div class="breakdown-card" id="shoppingBreakdown">
+                    <div class="breakdown-card-header">
+                        <h3>🛒 Shopping Details</h3>
+                        <button class="btn-secondary btn-small" id="addShoppingBtn">+ Add Entry</button>
+                    </div>
+                    <div class="breakdown-form" id="shoppingForm" style="display: none;">
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="shopping-item">Item</label>
+                                <input type="text" id="shopping-item" class="input-field" placeholder="e.g., Groceries, Electronics">
+                            </div>
+                            <div class="input-group">
+                                <label for="shopping-amount">Amount</label>
+                                <input type="number" id="shopping-amount" class="input-field" placeholder="0" min="0" step="0.01">
+                            </div>
+                            <div class="input-group">
+                                <label for="shopping-units">Units</label>
+                                <select id="shopping-units" class="input-field">
+                                    <option value="USD">USD</option>
+                                    <option value="items">Items</option>
+                                    <option value="kg">kg</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="shopping-emissions">Emissions (kg CO₂e)</label>
+                                <input type="number" id="shopping-emissions" class="input-field" placeholder="0" min="0" step="0.01">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn-primary" id="saveShoppingBtn">Save Entry</button>
+                            <button class="btn-secondary" id="cancelShoppingBtn">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="breakdown-content" id="shoppingBreakdownContent">
+                        <p class="empty-message">No shopping data available. Start logging your purchases!</p>
+                    </div>
+                </div>
+
+                <!-- Energy Breakdown -->
+                <div class="breakdown-card" id="energyBreakdown">
+                    <div class="breakdown-card-header">
+                        <h3>⚡ Energy Usage</h3>
+                        <button class="btn-secondary btn-small" id="addEnergyBtn">+ Add Entry</button>
+                    </div>
+                    <div class="breakdown-form" id="energyForm" style="display: none;">
+                        <div class="form-grid">
+                            <div class="input-group">
+                                <label for="energy-type">Type</label>
+                                <input type="text" id="energy-type" class="input-field" placeholder="e.g., Heating, Cooling, Appliances">
+                            </div>
+                            <div class="input-group">
+                                <label for="energy-amount">Amount</label>
+                                <input type="number" id="energy-amount" class="input-field" placeholder="0" min="0" step="0.1">
+                            </div>
+                            <div class="input-group">
+                                <label for="energy-units">Units</label>
+                                <select id="energy-units" class="input-field">
+                                    <option value="kWh">kWh</option>
+                                    <option value="therms">Therms</option>
+                                    <option value="BTU">BTU</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="energy-emissions">Emissions (kg CO₂e)</label>
+                                <input type="number" id="energy-emissions" class="input-field" placeholder="0" min="0" step="0.01">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn-primary" id="saveEnergyBtn">Save Entry</button>
+                            <button class="btn-secondary" id="cancelEnergyBtn">Cancel</button>
+                        </div>
+                    </div>
+                    <div class="breakdown-content" id="energyBreakdownContent">
+                        <p class="empty-message">No energy data available. Start logging your usage!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section id="insights" class="insights-section">
+        <div class="container">
+            <h2 class="section-title">Insights & Recommendations</h2>
+            <div class="insights-grid" id="insightsGrid">
+                <!-- Insights will be dynamically generated -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Tasks & Challenges Section -->
+    <section id="goals" class="goals-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tasks & Challenges</h2>
+                <div class="section-actions">
+                    <button class="btn-primary" id="refreshTasksBtn">Load Tasks</button>
+                    <button class="btn-secondary" id="setGoalBtn">Set Goal</button>
+                </div>
+            </div>
+            
+            <!-- Personalized Tasks -->
+            <div class="tasks-container" id="tasksContainer">
+                <div class="tasks-summary" id="tasksSummary" style="display: none;">
+                    <div class="summary-card">
+                        <h3>💡 Potential Savings</h3>
+                        <div class="summary-value" id="totalPotentialSavings">0.00</div>
+                        <div class="summary-label">kg CO₂e</div>
+                    </div>
+                </div>
+                <div class="tasks-grid" id="tasksGrid">
+                    <p class="empty-message">Click "Get New Tasks" to see personalized challenges to reduce your carbon footprint!</p>
+                </div>
+            </div>
+
+            <!-- Goal Setting (Collapsible) -->
+            <div class="goal-card" id="goalCard" style="display: none;">
+                <h3>Set Reduction Goal</h3>
+                <div class="input-group">
+                    <label for="goal-percent">Target Reduction (%)</label>
+                    <input type="number" id="goal-percent" class="input-field" placeholder="20" min="1" max="100">
+                </div>
+                <div class="input-group">
+                    <label for="goal-deadline">Deadline</label>
+                    <input type="date" id="goal-deadline" class="input-field">
+                </div>
+                <button class="btn-primary" id="setGoalSubmitBtn">Set Goal</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Section -->
+    <!-- <section id="premium" class="premium-section">
+        <div class="container">
+            <h2 class="section-title">Premium Features</h2>
+            <p class="section-subtitle">Unlock advanced analytics and exclusive features</p>
+            
+            <div class="pricing-table">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Free</h3>
+                        <div class="price">$0<span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>✓ Basic calculator</li>
+                        <li>✓ Monthly dashboard</li>
+                        <li>✓ Basic insights</li>
+                        <li>✓ Goal tracking</li>
+                    </ul>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="featured-badge">Popular</div>
+                    <div class="pricing-header">
+                        <h3>Premium</h3>
+                        <div class="price">$9.99<span>/month</span></div>
+                    </div>
+                    <ul class="pricing-features">
+                    <li>✓ Everything in Free</li>
+                        <li>✓ Advanced analytics</li>
+                        <li>✓ PDF/CSV export</li>
+                        <li>✓ Device integrations</li>
+                        <li>✓ Priority chatbot</li>
+                        <li>✓ Personalized plans</li>
+                        <li>✓ Team tracking</li>
+                    </ul>
+                    <button class="btn-primary btn-large" id="subscribeBtn">Subscribe Now</button>
+                </div>
+            </div>
+        </div>
+    </section>     -->
+
+    <!-- Profile Section -->
+    <section id="profile" class="profile-section">
+        <div class="container">
+            <h2 class="section-title">Profile & Settings</h2>
+            <div class="profile-container">
+                <div class="profile-card">
+                    <h3>User Information</h3>
+                    <div class="input-group">
+                        <label for="household-size">Household Size</label>
+                        <input type="number" id="household-size" class="input-field" placeholder="1" min="1">
+                    </div>
+                    <div class="input-group">
+                        <label for="location">Location</label>
+                        <input type="text" id="location" class="input-field" placeholder="City, Country">
+                    </div>
+                    <div class="input-group">
+                        <label for="units">Units</label>
+                        <select id="units" class="input-field">
+                            <option value="imperial">Imperial</option>
+                            <option value="metric">Metric</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary" id="saveProfileBtn">Save Settings</button>
+                </div>
+                <!-- <div class="profile-card">
+                    <h3>Subscription</h3>
+                    <div id="subscriptionStatus" class="subscription-status">
+                        <p>Current Plan: <span id="currentPlan">Free</span></p>
+                    </div>
+                    <button class="btn-secondary" id="manageSubscriptionBtn">Manage Subscription</button>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Carbon Tracker</h4>
+                    <p>Helping you reduce your environmental impact, one step at a time.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#calculator">Calculator</a></li>
+                        <li><a href="#insights">Insights</a></li>
+                        <!-- <li><a href="#premium">Premium</a></li> -->
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Carbon Footprint Tracker. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Chat Modal -->
+    <div id="floatingChatModal" class="floating-chat-modal" style="display: none;">
+        <div class="floating-chat-container">
+            <div class="floating-chat-header">
+                <h3>💬 Carbon Buddy Chat</h3>
+                <button class="floating-chat-close" id="floatingChatClose" aria-label="Close chat">×</button>
+            </div>
+            <div class="floating-chat-content">
+                <iframe 
+                    id="floatingChatIframe" 
+                    src="http://localhost:8501" 
+                    frameborder="0" 
+                    allow="microphone; camera"
+                    title="Chat Assistant">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Chat Button -->
+    <button id="floatingChatButton" class="floating-chat-button" aria-label="Open chat">
+        <span class="chat-icon">💬</span>
+        <span class="chat-badge" id="chatBadge" style="display: none;">1</span>
+    </button>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login</h2>
+                <button class="modal-close" id="loginModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" class="input-field" placeholder="your@email.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" class="input-field" placeholder="Enter your password" required>
+                    </div>
+                    <div class="modal-actions">
+                        <button type="submit" class="btn-primary btn-large" style="width: 100%;">Login</button>
+                        <p style="text-align: center; margin-top: 1rem; color: var(--text-secondary);">
+                            Don't have an account? <a href="#" id="switchToSignup" style="color: var(--accent-primary); cursor: pointer;">Sign Up</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sign Up</h2>
+                <button class="modal-close" id="signupModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="signupForm">
+                    <div class="input-group">
+                        <label for="signupName">Name</label>
+                        <input type="text" id="signupName" class="input-field" placeholder="Your name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" class="input-field" placeholder="your@email.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" class="input-field" placeholder="Create a password" required minlength="6">
+                    </div>
+                    <div class="modal-actions">
+                        <button type="submit" class="btn-primary btn-large" style="width: 100%;">Sign Up</button>
+                        <p style="text-align: center; margin-top: 1rem; color: var(--text-secondary);">
+                            Already have an account? <a href="#" id="switchToLogin" style="color: var(--accent-primary); cursor: pointer;">Login</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chatbot is now in floating modal - removed from bottom section -->
+
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="api.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js" integrity="sha384-YTgIyvV5bbh2kWnxygqYVoLQFw+uIKGDK+fKDyNrXYYwNx3PwRbQKigHNQ6CWr9x" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+
+</body>
+</html>

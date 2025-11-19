@@ -1,0 +1,21 @@
+{
+  "user_id": "demo-user-1",
+  "summary": {
+    "today_tokens": 45.0,
+    "week_tokens": 310.0,
+    "month_tokens": 1240.0,
+    "lifetime_tokens": 4820.0
+  },
+  "history": [
+    { "date": "2025-11-17", "carbon_saved_kg": 4.5, "tokens_earned": 45 },
+    { "date": "2025-11-16", "carbon_saved_kg": 32.0, "tokens_earned": 320 },
+    { "date": "2025-11-15", "carbon_saved_kg": 12.5, "tokens_earned": 125 },
+    { "date": "2025-11-14", "carbon_saved_kg": 8.2, "tokens_earned": 82 },
+    { "date": "2025-11-13", "carbon_saved_kg": 10.0, "tokens_earned": 100 }
+  ],
+  "achievements": [
+    { "badge": "green_starter", "unlocked_on": "2025-08-02T19:22:00Z" },
+    { "badge": "eco_warrior", "unlocked_on": "2025-10-10T10:15:00Z" }
+  ]
+}
+
